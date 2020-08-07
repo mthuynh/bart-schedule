@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Form from './components/Form';
 
 function App() {
+  const [stations, setStations] = useState([])
+
+  useEffect(() => {
+    const fetchStations = async () => {
+      const response = await fetch('http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y')
+      const data = await response.json()
+      setStations(data.root.stations.station)
+    }
+
+    fetchStations()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Bart Schedule</h1>
+      <label htmlFor="from">From</label>
+      <Form stations={stations} />
+      <label htmlFor="to">to</label>
+      <Form stations={stations} />
     </div>
   );
 }
