@@ -1,0 +1,54 @@
+$main-blue: rgb(11, 158, 255);
+$font-stack: Helvetica, Arial, sans-serif;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.bart__container {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.bart__header {
+  text-align: center;
+
+  .bart__title {
+    color: $main-blue;
+    font-family: $font-stack;
+    font-size: 50px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+}
+
+.bart__form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+
+  select {
+    font-size: 14px;
+    padding: 10px;
+    font-family: $font-stack;
+    margin-bottom: 10px;
+    border-color: rgb(197, 197, 197);
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: $main-blue;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 20px 0;
+    width: 150px;
+    margin: 10px auto;
+
+  }
+}

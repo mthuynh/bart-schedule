@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import Form from './components/Form';
+import './App.scss';
+import { FromToForm } from './components/FromToForm';
 
 function App() {
   const [stations, setStations] = useState([])
@@ -16,12 +16,11 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <h1>Bart Schedule</h1>
-      <label htmlFor="from">From</label>
-      <Form stations={stations} />
-      <label htmlFor="to">to</label>
-      <Form stations={stations} />
+    <div className="bart__container">
+      <div className="bart__header">
+        <h1 className="bart__title">Bart Schedule</h1>
+        <FromToForm stations={stations} />
+      </div>
     </div>
   );
 }
