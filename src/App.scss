@@ -52,3 +52,14 @@ $font-stack: Helvetica, Arial, sans-serif;
 
   }
 }
+
+.trips {
+
+  .trip {
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 500px;
+  }
+}

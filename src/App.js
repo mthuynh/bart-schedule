@@ -1,25 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import { FromToForm } from './components/FromToForm';
+import SelectStation from './components/SelectStation';
+import Schedule from './components/Schedule';
 
 function App() {
   const [stations, setStations] = useState([])
+  const [start, setStart] = useState()
+  const [end, setEnd] = useState()
+  const [trips, setTrips] = useState([])
+  const [cost, setCost] = useState()
 
   useEffect(() => {
     const fetchStations = async () => {
       const response = await fetch('http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y')
       const data = await response.json()
+      setStart(data.root.stations.station[0].abbr)
+      setEnd(data.root.stations.station[1].abbr)
       setStations(data.root.stations.station)
     }
 
     fetchStations()
   }, [])
 
+  useEffect(() => {
+    const fetchStations = async () => {
+      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
+      const data = await response.json()
+      setTrips(data.root.schedule.request.trip)
+      setCost(data.root.schedule.request.trip[0]["@clipper"])
+    }
+
+    fetchStations()
+  }, [start, end])
+
+  function updateStartLocation(e) {
+    setStart(e.target.value)
+  }
+
+  function updateEndLocation(e) {
+    setEnd(e.target.value)
+  }
+
   return (
     <div className="bart__container">
       <div className="bart__header">
         <h1 className="bart__title">Bart Schedule</h1>
-        <FromToForm stations={stations} />
+        <form className="bart__form">
+          <SelectStation 
+            stations={stations} 
+            location={start} 
+            updateLocation={updateStartLocation} />
+          <SelectStation 
+            stations={stations} 
+            location={end} 
+            updateLocation={updateEndLocation} />
+          <button type="submit">Go</button>
+        </form>
+        <Schedule trips={trips} cost={cost} />
       </div>
     </div>
   );
