@@ -24,10 +24,10 @@ function App() {
 
   useEffect(() => {
     const fetchStations = async () => {
-      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
+      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=depart&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
       const data = await response.json()
       setTrips(data.root.schedule.request.trip)
-      setCost(data.root.schedule.request.trip[0]["@clipper"])
+      setCost(data.root.schedule.request.trip[0]["@fare"])
     }
 
     fetchStations()
@@ -54,7 +54,6 @@ function App() {
             stations={stations} 
             location={end} 
             updateLocation={updateEndLocation} />
-          <button type="submit">Go</button>
         </form>
         <Schedule trips={trips} cost={cost} />
       </div>
