@@ -1,5 +1,5 @@
 $main-blue: rgb(11, 158, 255);
-$font-stack: Helvetica, Arial, sans-serif;
+$font-stack: 'Montserrat', Arial, sans-serif;
 
 * {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
 }
 
 .bart__container {
-  max-width: 1200px;
+  max-width: 500px;
   margin: 50px auto;
   padding: 10px 20px;
 }
@@ -21,11 +21,15 @@ body {
   text-align: center;
 
   .bart__title {
-    color: $main-blue;
+    color: #000;
     font-family: $font-stack;
     font-size: 50px;
-    font-weight: 300;
+    font-weight: 800;
     margin-bottom: 20px;
+
+    .title-a {
+      color: $main-blue;
+    }
   }
 }
 
@@ -33,15 +37,22 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
+  padding-bottom: 15px;
+  position: relative;
+  border-bottom: 2px solid rgb(221, 221, 221);
 
   select {
-    font-size: 14px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
     font-family: $font-stack;
-    margin-bottom: 10px;
-    border-color: #fff;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #fff;
     border-radius: 5px;
+    color: #000;
+    -webkit-appearance: none;
+    width: 85%;
   }
 
   button {
@@ -50,15 +61,38 @@ body {
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
-    font-size: 14px;
-    padding: 20px 0;
-    width: 150px;
+    padding: 10px 0;
+    width: 12%;
     margin: 10px auto;
-
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    top: 15px;
   }
 }
 
 .trips {
+  .cost {
+    background-color: #fff;
+    padding: 15px 30px;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    text-align: left;
+
+    h3 {
+      font-family: $font-stack;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: $font-stack;
+      font-size: 20px;
+      color: $main-blue;
+    }
+  }
+
   .trip {
     background-color: #fff;
     border-radius: 20px;
@@ -68,7 +102,7 @@ body {
 
     p {
       font-size: 30px;
-      font-family: Arial, sans-serif;
+      font-family: $font-stack;
       font-weight: 300;
     }
 
@@ -79,12 +113,22 @@ body {
     }
 
     .trip__time {
-      margin-top: 50px;
+      margin-top: 30px;
+    }
+
+    .transfer {
+      margin-top: 30px;
+      padding: 0 20px;
+    }
+
+    .transfer p {
+      font-size: 15px;
+      color: rgb(255, 132, 132);
     }
   }
   
   .travel-time {
-    border-top: 2px solid $main-blue;
+    border-top: 2px dashed $main-blue;
     text-align: center;
     position: relative;
     top: 15px;

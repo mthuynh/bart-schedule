@@ -41,11 +41,18 @@ function App() {
     setEnd(e.target.value)
   }
 
+  function reverseRoute(e) {
+    e.preventDefault();
+
+    setStart(end);
+    setEnd(start);
+  }
+
   return (
     <div className="bart__container">
       <div className="bart__header">
-        <h1 className="bart__title">Bart Schedule</h1>
-        <form className="bart__form">
+        <h1 className="bart__title">b<span className="title-a">a</span>rt schedule</h1>
+        <form className="bart__form" onSubmit={reverseRoute}>
           <SelectStation 
             stations={stations} 
             location={start} 
@@ -54,8 +61,13 @@ function App() {
             stations={stations} 
             location={end} 
             updateLocation={updateEndLocation} />
+          <button type="submit">&#8593;&#8595;</button>
         </form>
-        <Schedule trips={trips} cost={cost} />
+        <Schedule 
+          cost={cost} 
+          stations={stations}
+          trips={trips} 
+          />
       </div>
     </div>
   );
