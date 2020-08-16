@@ -15,6 +15,10 @@ const Schedule = ({trips, cost}) => {
                             </div>
                             <p class="end">{trip["@destination"]}</p>
                         </div>
+                        {trip.leg.length > 1 ? 
+                            <div class="transfer">*Stop at {trip.leg[0]["@destination"]} and transfer to {trip.leg[1]["@trainHeadStation"]}</div>
+                            : null 
+                        }
                         <div class="trip__time">
                             <p class="leave">{trip["@origTimeMin"]}</p>
                             <p class="arrive">{trip["@destTimeMin"]}</p>
