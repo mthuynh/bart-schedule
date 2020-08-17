@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchStations = async () => {
-      const response = await fetch('http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y')
+      const response = await fetch('https://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y')
       const data = await response.json()
       setStart(data.root.stations.station[0].abbr)
       setEnd(data.root.stations.station[1].abbr)
@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     const fetchStations = async () => {
-      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
+      const response = await fetch(`https://api.bart.gov/api/sched.aspx?cmd=depart&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
       const data = await response.json()
       console.log(data)
       setTrips(data.root.schedule.request.trip)
