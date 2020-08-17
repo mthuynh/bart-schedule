@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/bart-schedule/static/css/main.8a6ba471.chunk.css",
+    "main.js": "/bart-schedule/static/js/main.de5e1578.chunk.js",
+    "main.js.map": "/bart-schedule/static/js/main.de5e1578.chunk.js.map",
+    "runtime-main.js": "/bart-schedule/static/js/runtime-main.b748994d.js",
+    "runtime-main.js.map": "/bart-schedule/static/js/runtime-main.b748994d.js.map",
+    "static/js/2.6489fc0d.chunk.js": "/bart-schedule/static/js/2.6489fc0d.chunk.js",
+    "static/js/2.6489fc0d.chunk.js.map": "/bart-schedule/static/js/2.6489fc0d.chunk.js.map",
+    "index.html": "/bart-schedule/index.html",
+    "precache-manifest.44175e9b7f4472b819dcc92bf4600e6c.js": "/bart-schedule/precache-manifest.44175e9b7f4472b819dcc92bf4600e6c.js",
+    "service-worker.js": "/bart-schedule/service-worker.js",
+    "static/css/main.8a6ba471.chunk.css.map": "/bart-schedule/static/css/main.8a6ba471.chunk.css.map",
+    "static/js/2.6489fc0d.chunk.js.LICENSE.txt": "/bart-schedule/static/js/2.6489fc0d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b748994d.js",
+    "static/js/2.6489fc0d.chunk.js",
+    "static/css/main.8a6ba471.chunk.css",
+    "static/js/main.de5e1578.chunk.js"
+  ]
+}
