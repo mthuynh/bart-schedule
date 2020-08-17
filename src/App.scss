@@ -1,4 +1,9 @@
 $main-blue: rgb(11, 158, 255);
+$main-black: #000;
+$main-gray: rgb(168, 168, 168);
+$main-red: rgb(255, 132, 132);
+$main-white: #fff;
+$background: #efefef;
 $font-stack: 'Montserrat', Arial, sans-serif;
 
 * {
@@ -7,13 +12,11 @@ $font-stack: 'Montserrat', Arial, sans-serif;
   padding: 0;
 }
 
-body {
-  background-color: #efefef;
-}
+body { background-color: $background; }
 
 .bart__container {
-  max-width: 500px;
   margin: 50px auto;
+  max-width: 500px;
   padding: 10px 20px;
 }
 
@@ -21,86 +24,96 @@ body {
   text-align: center;
 
   .bart__title {
-    color: #000;
+    color: $main-black;
     font-family: $font-stack;
     font-size: 50px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 
-    .title-a {
-      color: $main-blue;
-    }
+    .title-a { color: $main-blue; }
   }
 }
 
 .bart__form {
+  border-bottom: 1px solid $main-gray;
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  margin: 0 auto 50px;
+  margin: 0 auto;
   padding-bottom: 15px;
   position: relative;
-  border-bottom: 2px solid rgb(221, 221, 221);
 
   select {
+    background-color: $main-white;
+    border: none;
+    border-radius: 5px;
+    color: $main-black;
     font-size: 18px;
-    padding: 10px 20px;
     font-family: $font-stack;
     margin-bottom: 15px;
-    border: none;
-    background-color: #fff;
-    border-radius: 5px;
-    color: #000;
+    padding: 15px 20px;
     -webkit-appearance: none;
     width: 85%;
+
+    &:focus { outline: $main-blue auto 1px; }
   }
 
   button {
     background-color: $main-blue;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: $main-white;
     cursor: pointer;
-    padding: 10px 0;
-    width: 12%;
-    margin: 10px auto;
     font-size: 20px;
+    margin: 10px auto;
+    padding: 10px 0;
     position: absolute;
     right: 0;
-    top: 15px;
+    top: 30px;
+    width: 12%;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      top: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
   }
 }
 
 .trips {
   .cost {
-    background-color: #fff;
-    padding: 15px 30px;
+    background-color: $main-white;
+    border-radius: 5px;
+    color: $main-black;
     max-width: 500px;
-    margin: 0 auto 50px;
+    margin: 30px auto;
+    padding: 15px 30px;
     text-align: left;
 
     h3 {
       font-family: $font-stack;
       font-size: 25px;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     p {
+      color: $main-blue;
       font-family: $font-stack;
       font-size: 20px;
-      color: $main-blue;
     }
   }
 
   .trip {
-    background-color: #fff;
+    background-color: $main-white;
     border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 500px;
-    margin: 15px auto 30px;
+    margin: 25px auto 50px;
     padding: 30px;
 
     p {
+      color: $main-black;
       font-size: 30px;
       font-family: $font-stack;
       font-weight: 300;
@@ -112,54 +125,58 @@ body {
       justify-content: space-between;
     }
 
-    .trip__time {
-      margin-top: 30px;
+    .trip__route {
+      .start { color: $main-gray; }
+      
+      .travel-time {
+        border-top: 2px dashed $main-blue;
+        text-align: center;
+        position: relative;
+        top: 15px;
+        flex-grow: 2;
+        margin: 0 20px;
+    
+        & p, & .icon {
+          display: block;
+          position: relative;
+          bottom: 18px;
+        }
+    
+        p {
+          font-size: 18px;
+          margin-top: 0;
+        }
+    
+        .icon {
+          font-size: 30px;
+          background-color: $main-white;
+          width: 38px;
+          margin: 0 auto;
+          padding: 0 5px;
+        }
+      }
+
+      .trip__route .end { color: $main-blue; }
     }
 
-    .transfer {
+    .trip__transfer {
       margin-top: 30px;
       padding: 0 20px;
+
+      p {
+        font-size: 15px;
+        color: $main-red;
+      }
     }
 
-    .transfer p {
-      font-size: 15px;
-      color: rgb(255, 132, 132);
-    }
-  }
-  
-  .travel-time {
-    border-top: 2px dashed $main-blue;
-    text-align: center;
-    position: relative;
-    top: 15px;
-    flex-grow: 2;
-    margin: 0 20px;
+    .trip__time {
+      margin-top: 30px;
 
-    & p, & .icon {
-      display: block;
-      position: relative;
-      bottom: 18px;
-    }
+      p { font-size: 20px; }
 
-    p {
-      font-size: 18px;
-      margin-top: 0;
+      @media screen and (min-width: 414px) {
+        p { font-size: 30px; }
+      }
     }
-
-    .icon {
-      font-size: 30px;
-      background-color: #fff;
-      width: 38px;
-      margin: 0 auto;
-      padding: 0 5px;
-    }
-  }
-  
-  .trip__route .start {
-    color: gray;
-  }
-  
-  .trip__route .end {
-    color: $main-blue;
   }
 }

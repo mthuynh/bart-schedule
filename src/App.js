@@ -52,23 +52,25 @@ function App() {
     <div className="bart__container">
       <div className="bart__header">
         <h1 className="bart__title">b<span className="title-a">a</span>rt schedule</h1>
-        <form className="bart__form" onSubmit={reverseRoute}>
-          <SelectStation 
-            stations={stations} 
-            location={start} 
-            updateLocation={updateStartLocation} />
-          <SelectStation 
-            stations={stations} 
-            location={end} 
-            updateLocation={updateEndLocation} />
-          <button type="submit">&#8593;&#8595;</button>
-        </form>
-        <Schedule 
-          cost={cost} 
-          stations={stations}
-          trips={trips} 
-          />
       </div>
+      
+      <form className="bart__form" onSubmit={reverseRoute}>
+        <SelectStation 
+          stations={stations} 
+          location={start} 
+          updateLocation={updateStartLocation} />
+        <SelectStation 
+          stations={stations} 
+          location={end} 
+          updateLocation={updateEndLocation} />
+        <button type="submit">&#8593;&#8595;</button>
+      </form>
+      
+      <Schedule 
+        cost={cost} 
+        stations={stations}
+        trips={trips} 
+        />
     </div>
   );
 }

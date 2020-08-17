@@ -5,7 +5,8 @@ const Schedule = ({cost, trips, stations}) => {
         <div className="trips">
             <div className="cost">
                 <h3>Cost</h3>
-                <p>One-way: ${cost}</p>
+                <p>One-way</p> 
+                <p>${cost}</p>
             </div>
             {trips.map((trip, index) => {
                 return (
@@ -19,7 +20,7 @@ const Schedule = ({cost, trips, stations}) => {
                             <p className="end">{trip["@destination"]}</p>
                         </div>
                         {trip.leg.length > 1 ? 
-                            <div className="transfer">
+                            <div className="trip__transfer">
                                 <p>*Stop at {stations.find(station => station.abbr === trip.leg[0]["@destination"]).name} and transfer to {trip.leg[1]["@trainHeadStation"]}</p>
                             </div>
                             : null 
