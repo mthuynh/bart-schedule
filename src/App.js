@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.scss';
 import SelectStation from './components/SelectStation';
 import Schedule from './components/Schedule';
+import Cost from './components/Cost';
 
 function App() {
   const [stations, setStations] = useState([])
@@ -24,8 +25,9 @@ function App() {
 
   useEffect(() => {
     const fetchStations = async () => {
-      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=depart&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
+      const response = await fetch(`http://api.bart.gov/api/sched.aspx?cmd=arrive&orig=${start}&dest=${end}&date=now&key=MW9S-E7SL-26DU-VV8V&b=0&a=4&l=1&json=y`)
       const data = await response.json()
+      console.log(data)
       setTrips(data.root.schedule.request.trip)
       setCost(data.root.schedule.request.trip[0]["@fare"])
     }
@@ -65,9 +67,10 @@ function App() {
           updateLocation={updateEndLocation} />
         <button type="submit">&#8593;&#8595;</button>
       </form>
+
+      <Cost cost={cost} />
       
-      <Schedule 
-        cost={cost} 
+      <Schedule
         stations={stations}
         trips={trips} 
         />

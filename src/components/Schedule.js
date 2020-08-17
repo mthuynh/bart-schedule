@@ -3,11 +3,6 @@ import React from 'react'
 const Schedule = ({cost, trips, stations}) => {
     return (
         <div className="trips">
-            <div className="cost">
-                <h3>Cost</h3>
-                <p>One-way</p> 
-                <p>${cost}</p>
-            </div>
             {trips.map((trip, index) => {
                 return (
                     <div className="trip" key={index}>
